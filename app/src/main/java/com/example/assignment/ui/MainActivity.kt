@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
                 is  NetworkResult.Success -> {
                     dataAdapter.updateMovies(it.data)
                     binding.progressbar.isVisible = false
-                    DataManager.init(this,it.data)
-                    DataManager.fetchDataAndCache()
+                 //   DataManager.init(this,it.data)
+                  //  DataManager.fetchDataAndCache()
                 }
             }
         }

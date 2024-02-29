@@ -6,16 +6,16 @@ import com.example.assignment.data.cache.MyAppDatabase
 
 class MyApp : Application() {
 
- companion object {
- lateinit var database: MyAppDatabase
- }
+    companion object {
+        lateinit var database: MyAppDatabase
+    }
 
-override fun onCreate() {
- super.onCreate()
- database = Room.databaseBuilder(
- applicationContext,
-  MyAppDatabase::class.java,
- "my_database"
- ).build()
- }
+    override fun onCreate() {
+        super.onCreate()
+       /* database = Room.databaseBuilder(
+            applicationContext,
+            MyAppDatabase::class.java,
+            "my_database"
+        ).build()*/
+    }
 }
