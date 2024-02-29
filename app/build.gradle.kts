@@ -1,10 +1,10 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-   // id("kotlin-kapt")
+    id("kotlin-kapt")
 // For room
   //  id("com.google.devtools.ksp")
-  //  kotlin("kapt")
+  // kotlin("kapt")
 
 }
 
@@ -81,18 +81,9 @@ dependencies {
 
 
 
-    /*implementation ("androidx.room:room-runtime:$$roomVersion")
-    kapt ("androidx.room:room-compiler:$$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")*/
-
-    //val roomVersion = "2.5.2"
-   // implementation("androidx.room:room-ktx:$roomVersion")
-  //  kapt ("androidx.room:room-compiler:$roomVersion")
-    //ksp("androidx.room:room-compiler:$roomVersion")
-   /* implementation ("androidx.room:room-runtime:$roomVersion")
-    kapt ("androidx.room:room-compiler:$roomVersion")
-    implementation ("androidx.room:room-ktx:$roomVersion")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")*/
+    implementation ("androidx.room:room-runtime:2.2.4")
+    kapt ("androidx.room:room-compiler:2.2.4")
+    implementation ("androidx.room:room-ktx:2.2.5")
 
 
 

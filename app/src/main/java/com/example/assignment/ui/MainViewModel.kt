@@ -8,11 +8,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.assignment.data.DataRepository
 import com.example.assignment.data.cache.DataManager
+import com.example.assignment.data.cache.MyAppDatabase
 import com.example.assignment.data.model.Item
 import com.example.assignment.data.model.NetworkResult
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel : ViewModel() {
     private val dataRepository = DataRepository()
@@ -33,6 +36,7 @@ class MainViewModel : ViewModel() {
             dataRepository.getData().collect{
                     _dataResponse.postValue(it)
             }
+
 
         }
     }

@@ -15,7 +15,7 @@ class DataAdapter  : RecyclerView.Adapter<DataAdapter.ItemViewHolder>() {
     var items = mutableListOf<Item>()
     private var clickInterface: ClickInterface<Item>? = null
 
-    fun updateMovies(movies: List<Item>) {
+    fun updateItems(movies: List<Item>) {
         this.items = movies.toMutableList()
         notifyItemRangeInserted(0, movies.size)
     }

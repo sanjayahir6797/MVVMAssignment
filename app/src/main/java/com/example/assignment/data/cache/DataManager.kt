@@ -9,26 +9,32 @@ import java.util.concurrent.Executors
 
 // Fetch and cache data
 object DataManager {
-   //lateinit var database: MyAppDatabase
     lateinit var executor: Executor
-    private val myDataList: List<Item>? = null
+    //  private val myDataList: List<Item>? = null
 
-    fun init(context: Context?, myDataList: List<Item?>?) {
-        var myDataList = myDataList
+
+    fun init() {
+
         //database = Room.databaseBuilder(context!!, MyAppDatabase::class.java, "my-database").build()
         executor = Executors.newSingleThreadExecutor()
-        myDataList = myDataList
+
     }
 
-    fun fetchDataAndCache() {
+    fun addCacheData(context: Context, myDataList: List<Item>) {
         executor.execute {
             // Cache the fetched data in the local database
-            MyApp.database.itemDataDao()?.deleteAllItems()
-            MyApp.database.itemDataDao()?.insertAll(myDataList)
+            MyAppDatabase(context).itemDataDao()?.deleteAllItems()
+            MyAppDatabase(context).itemDataDao()?.insertAll(myDataList)
         }
     }
 
-    val cachedData: List<Item>
-        get() =// Load cached data from the local database
-            MyApp.database.itemDataDao()!!.allItems
+    fun getCachedData(context:Context):Int // List<Item>?
+    {
+        var sizeList=0
+        executor.execute {
+            sizeList= MyAppDatabase(context).itemDataDao()?.allItems?.size?:0
+        }
+    // Load cached data from the local database
+    return sizeList
+}
 }
