@@ -1,25 +1,22 @@
-package com.example.assignment.data.cache;
+package com.example.assignment.data.cache
 
-import androidx.room.Dao;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
-
-import com.example.assignment.data.model.Item;
-
-import java.util.List;
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.example.assignment.data.model.Item
+import kotlinx.coroutines.flow.Flow
 
 @Dao
-public interface ItemDao {
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<Item> myDataList);
+interface ItemDao {
 
     @Query("SELECT * FROM items")
-    List<Item> getAllItems();
+    fun getAllItems(): Flow<List<Item>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertItems(coins: List<Item>)
 
     @Query("DELETE FROM items")
-    void  deleteAllItems();
-
-
+    suspend fun deleteAllItems()
 }

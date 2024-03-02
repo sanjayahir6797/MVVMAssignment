@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.assignment"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -67,28 +67,16 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
 
     //room
-    /*val roomVersion = "2.4.0"
-
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    kapt ("androidx.room:room-compiler:$roomVersion")*/
-
-    implementation ("androidx.room:room-runtime:2.2.5")
-
-    annotationProcessor ("androidx.room:room-compiler:2.2.5")
-
-    //room
+    implementation ("androidx.room:room-runtime:2.4.3")
+    kapt ("androidx.room:room-compiler:2.4.3")
+    implementation ("androidx.room:room-ktx:2.4.3")
 
 
+// LiveData
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.0")
 
-    implementation ("androidx.room:room-runtime:2.2.4")
-    kapt ("androidx.room:room-compiler:2.2.4")
-    implementation ("androidx.room:room-ktx:2.2.5")
-
-
-
-
-
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

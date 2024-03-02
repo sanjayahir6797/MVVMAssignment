@@ -15,7 +15,7 @@ class Item {
     private val idItem = 0*/
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int=0
+    var id: Long=0
 
     //@ColumnInfo(name = "title")
     @SerializedName("title")

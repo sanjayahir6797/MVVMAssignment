@@ -7,9 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.assignment.databinding.ItemDataBinding
 import com.example.assignment.data.model.Item
-
-
-
 class DataAdapter  : RecyclerView.Adapter<DataAdapter.ItemViewHolder>() {
 
     var items = mutableListOf<Item>()
@@ -17,7 +14,7 @@ class DataAdapter  : RecyclerView.Adapter<DataAdapter.ItemViewHolder>() {
 
     fun updateItems(movies: List<Item>) {
         this.items = movies.toMutableList()
-        notifyItemRangeInserted(0, movies.size)
+        notifyDataSetChanged()
     }
 
 
